@@ -14,7 +14,7 @@ module.exports = class extends Base {
       new UglifyJsPlugin({
         parallel: true,
         cache: true,
-        sourceMap: true,
+        sourceMap: false,
         uglifyOptions: {
           ie8: false,
           ecma: 8,
@@ -22,10 +22,7 @@ module.exports = class extends Base {
           mangle: {
             safari10: true
           },
-          compress: {
-            warnings: false,
-            comparisons: false
-          },
+          compress: false,
           output: {
             ascii_only: true
           }
@@ -41,7 +38,6 @@ module.exports = class extends Base {
         test: /\.(js|css|html|json|ico|svg|eot|otf|ttf)$/
       })
     )
-
     this.config.merge({
       devtool: 'nosources-source-map',
       stats: 'normal'
